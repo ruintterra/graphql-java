@@ -193,7 +193,8 @@ public class ValuesResolver {
         List<String> fieldNames = fields.stream().map(GraphQLInputObjectField::getName).collect(Collectors.toList());
         for (String inputFieldName : input.keySet()) {
             if (!fieldNames.contains(inputFieldName)) {
-                throw new InputMapDefinesTooManyFieldsException(inputObjectType, inputFieldName);
+                // TODO: ignore all extra fields for input
+                // throw InputMapDefinesTooManyFieldsException(inputObjectType, inputFieldName)
             }
         }
 
